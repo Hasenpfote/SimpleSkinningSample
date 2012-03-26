@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "skining", "skining\skining.vcproj", "{9FA997E3-CF96-4099-A064-BF50FB649C5D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{970A929F-9C32-4201-8F6C-5C85A07093CD} = {970A929F-9C32-4201-8F6C-5C85A07093CD}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libmath", "..\..\GitHubRepository\libmath\libmath\libmath.vcproj", "{970A929F-9C32-4201-8F6C-5C85A07093CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9FA997E3-CF96-4099-A064-BF50FB649C5D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9FA997E3-CF96-4099-A064-BF50FB649C5D}.Debug|Win32.Build.0 = Debug|Win32
+		{9FA997E3-CF96-4099-A064-BF50FB649C5D}.Release|Win32.ActiveCfg = Release|Win32
+		{9FA997E3-CF96-4099-A064-BF50FB649C5D}.Release|Win32.Build.0 = Release|Win32
+		{970A929F-9C32-4201-8F6C-5C85A07093CD}.Debug|Win32.ActiveCfg = Debug|Win32
+		{970A929F-9C32-4201-8F6C-5C85A07093CD}.Debug|Win32.Build.0 = Debug|Win32
+		{970A929F-9C32-4201-8F6C-5C85A07093CD}.Release|Win32.ActiveCfg = Release|Win32
+		{970A929F-9C32-4201-8F6C-5C85A07093CD}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
