@@ -189,6 +189,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\helper.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\log.cpp"
 				>
 			</File>
@@ -212,6 +216,10 @@
 			</File>
 			<File
 				RelativePath=".\glsl.h"
+				>
+			</File>
+			<File
+				RelativePath=".\helper.h"
 				>
 			</File>
 			<File

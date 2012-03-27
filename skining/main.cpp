@@ -8,6 +8,7 @@
 #include "quaternion.h"
 #include "matrix.h"
 #include "skelton.h"
+#include "helper.h"
 
 using namespace mathematics;
 
@@ -102,25 +103,7 @@ static void updateSekelton(Joint* joint, Joint* parent){
 // ƒXƒPƒ‹ƒgƒ“‚Ì•`‰æ
 static void renderSkelton(Joint* joint){
 	// ŠÖß‚Ì•`‰æ
-	glPushMatrix();
-		glMultMatrixf(joint->global_pose);
-		glColor3f(1.0f, 1.0f, 1.0);
-		glutWireSphere(0.25, 5, 5);
-		glBegin(GL_LINES);
-			glColor3f(1.0f, 1.0f, 1.0);
-			glVertex3f(0.0f, 0.0f, 0.0f);
-			glColor3f(1.0f, 0.0f, 0.0);
-			glVertex3f(0.5f, 0.0f, 0.0f);
-			glColor3f(1.0f, 1.0f, 1.0);
-			glVertex3f(0.0f, 0.0f, 0.0f);
-			glColor3f(0.0f, 1.0f, 0.0);
-			glVertex3f(0.0f, 0.5f, 0.0f);
-			glColor3f(1.0f, 1.0f, 1.0);
-			glVertex3f(0.0f, 0.0f, 0.0f);
-			glColor3f(0.0f, 0.0f, 1.0);
-			glVertex3f(0.0f, 0.0f, 0.5f);
-		glEnd();
-	glPopMatrix();
+	Helper::renderJoint(&joint->global_pose, 0.5f);
 	if(joint->child){
 		// œ‚Ì•`‰æ
 		glPushMatrix();
@@ -164,25 +147,7 @@ static void renderSkelton2(Joint2* joint){
 	Matrix44 global_pose;
 	joint->global_pose.getMatrix(&global_pose);
 	// ŠÖß‚Ì•`‰æ
-	glPushMatrix();
-		glMultMatrixf(global_pose);
-		glColor3f(1.0f, 1.0f, 1.0);
-		glutWireSphere(0.25, 5, 5);
-		glBegin(GL_LINES);
-			glColor3f(1.0f, 1.0f, 1.0);
-			glVertex3f(0.0f, 0.0f, 0.0f);
-			glColor3f(1.0f, 0.0f, 0.0);
-			glVertex3f(0.5f, 0.0f, 0.0f);
-			glColor3f(1.0f, 1.0f, 1.0);
-			glVertex3f(0.0f, 0.0f, 0.0f);
-			glColor3f(0.0f, 1.0f, 0.0);
-			glVertex3f(0.0f, 0.5f, 0.0f);
-			glColor3f(1.0f, 1.0f, 1.0);
-			glVertex3f(0.0f, 0.0f, 0.0f);
-			glColor3f(0.0f, 0.0f, 1.0);
-			glVertex3f(0.0f, 0.0f, 0.5f);
-		glEnd();
-	glPopMatrix();
+	Helper::renderJoint(&global_pose, 0.5f);
 	if(joint->child){
 		// œ‚Ì•`‰æ
 		glPushMatrix();
@@ -463,34 +428,6 @@ static void render_skin_mesh2(){
 	renderSkelton2(&joint2[0]);
 }
 #if 0
-void render_string(int x, int y, const char* string){
-	const size_t len = strlen(string);
-	glColor3f(1.0, 1.0, 1.0);
-	glWindowPos2f(x, y);
-	for(size_t i = 0; i < len; i++){
-      glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *string);
-	  string++;
-	}
-}
-
-void render_circle(float radius,int x,int y){
-	for (float th1 = 0.0;  th1 <= 360.0;  th1 = th1 + 1.0){             
-		float th2 = th1 + 10.0;
-		float th1_rad = th1 / 180.0 * PI; 
-		float th2_rad = th2 / 180.0 * PI;
-
-		float x1 = radius * cos(th1_rad);
-		float y1 = radius * sin(th1_rad);
-		float x2 = radius * cos(th2_rad);
-		float y2 = radius * sin(th2_rad);
-
-		glBegin(GL_LINES);   
-		glVertex2f( x1+x, y1+y );     
-		glVertex2f( x2+x, y2+y );
-		glEnd();
-	}
-}
-
 static void render_quat(){
 	static float w0 = 0.0f;
 	const float w1 = 1.0f - w0;
